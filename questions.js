@@ -1,49 +1,166 @@
 questions = [
     {
-        "question": "Oppression by corporations is more of a concern than oppression by governments.",
+        "question": "Same-sex marriage should be illegal.",
         "effect": {
-            "econ": 10,
-            "dipl": 0,
-            "govt": -5,
-            "scty": 0
+            "legal": -10,
+            "social": 0,
+            "media": 0,
         }
     },
     {
-        "question": "It is necessary for the government to intervene in the economy to protect consumers.",
+        "question": "Same-sex couples should be prohibited from adopting children.",
         "effect": {
-            "econ": 10,
-            "dipl": 0,
-            "govt": 0,
-            "scty": 0
+            "legal": -10,
+            "social": 5,
+            "media": 0,
         }
     },
     {
-        "question": "The freer the markets, the freer the people.",
+        "question": "No one should have access to cross-sex hormones except for rare physical health conditions.",
         "effect": {
-            "econ": -10,
-            "dipl": 0,
-            "govt": 0,
-            "scty": 0
+            "legal": -5,
+            "social": 0,
+            "media": 0,
         }
     },
     {
-        "question": "It is better to maintain a balanced budget than to ensure welfare for all citizens.",
+        "question": "Trangender people should be allowed to use the bathroom matching their gender identity.",
         "effect": {
-            "econ": -10,
-            "dipl": 0,
-            "govt": 0,
-            "scty": 0
+            "legal": 5,
+            "social": -10,
+            "media": 0,
         }
     },
     {
-        "question": "Publicly-funded research is more beneficial to the people than leaving it to the market.",
+        "question": "It should be easy to change one's legal gender.",
         "effect": {
-            "econ": 10,
-            "dipl": 0,
-            "govt": 0,
-            "scty": 10
+            "legal": 10,
+            "social": 0,
+            "media": 0,
         }
     },
+    {
+        "question": "Puberty blockers should be available to children with gender dysphoria.",
+        "effect": {
+            "legal": 5,
+            "social": 0,
+            "media": 0,
+        }
+    },
+    {
+        "question": "No one is born gay or trans.",
+        "effect": {
+            "legal": 0,
+            "social": 5,
+            "media": 0,
+        }
+    },
+    {
+        "question": "A heterosexual lifestyle is ideal for all people.",
+        "effect": {
+            "legal": 0,
+            "social": 10,
+            "media": 0,
+        }
+    },
+    {
+        "question": "LGBT+ topics are inappropriate for children.",
+        "effect": {
+            "legal": 0,
+            "social": 5,
+            "media": 0,
+        }
+    },
+    {
+        "question": "Deviant gender expression should be confined to private spaces.",
+        "effect": {
+            "legal": 0,
+            "social": 10,
+            "media": 0,
+        }
+    },
+    {
+        "question": "Children should be made to act and dress according their sex, even if they don't want to.",
+        "effect": {
+            "legal": 0,
+            "social": 10,
+            "media": 0,
+        }
+    },
+    {
+        "question": "Non-binary genders are valid.",
+        "effect": {
+            "legal": 0,
+            "social": -10,
+            "media": 0,
+        }
+    },
+    {
+        "question": "Conversion therapy is harmful and does not work.",
+        "effect": {
+            "legal": 0,
+            "social": -5,
+            "media": 0,
+        }
+    },
+    {
+        "question": "It is important that children be educated about gender and romantic diversity.",
+        "effect": {
+            "legal": 0,
+            "social": -10,
+            "media": 0,
+        }
+    },
+    {
+        "question": "Since LGBT+ people belong to a small minority, if they appear in mainstream entertainment it should be to appeal to the straight majority.",
+        "effect": {
+            "legal": 0,
+            "social": -5,
+            "media": -5,
+        }
+    },
+    {
+        "question": "LGBT+ representation should be limited to entertainment for niche audiences.",
+        "effect": {
+            "legal": 0,
+            "social": -5,
+            "media": -10,
+        }
+    },
+    {
+        "question": "LGBT+ characters are off-putting.",
+        "effect": {
+            "legal": 0,
+            "social": 0,
+            "media": -5,
+        }
+    },
+    {
+        "question": "Since straight perspectives have historically been over-represented in media, the majority of modern entertainment should focus on LGBT+ stories.",
+        "effect": {
+            "legal": 0,
+            "social": 0,
+            "media": 5,
+        }
+    },
+    {
+        "question": "Straight and cisgender characters are uninteresting.",
+        "effect": {
+            "legal": 0,
+            "social": 0,
+            "media": 5,
+        }
+    },
+    {
+        "question": "All mainstream entertainment should feature LGBT+ characters.",
+        "effect": {
+            "legal": 0,
+            "social": 0,
+            "media": 10,
+        }
+    }
+];
+
     {
         "question": "Tariffs on international trade are important to encourage local production.",
         "effect": {
