@@ -84,10 +84,9 @@ stats"></a></div></noscript>
         }
     }
 
-    legalArray = ["Communist","Socialist","Social","Centrist","Market","Capitalist","Laissez-Faire"]
-    socialArray = ["Cosmopolitan","Internationalist","Peaceful","Balanced","Patriotic","Nationalist","Chauvinist"]
-    govtArray = ["Anarchist","Libertarian","Liberal","Moderate","Statist","Authoritarian","Totalitarian"]
-    sctyArray = ["Revolutionary","Very Progressive","Progressive","Neutral","Traditional","Very Traditional","Reactionary"]
+    legalArray = ["LGBT+ Ally","Progressive","Liberal","Conservative","Traditional","Reactionary","Staunchly Anti-LGBT+"]
+    socialArray = ["Strongly Diverse","Diverse","Open-Minded","Moderate","Traditionalist","Conformist","Very Conformist"]
+    mediaArray = ["Queer Dominance","LGBT+ Focus","LGBT+ Preference","Equal Respresentation","Straight Preference","Traditional Focus","Queer Erasure"]
 
     function setLabel(val,ary) {
         if (val > 100) { return "" } else
@@ -104,11 +103,9 @@ stats"></a></div></noscript>
     equality  = getQueryVariable("e")
     peace     = getQueryVariable("d")
     liberty   = getQueryVariable("g")
-    progress  = getQueryVariable("s")
     wealth    = (100 - equality).toFixed(1)
     might     = (100 - peace   ).toFixed(1)
     authority = (100 - liberty ).toFixed(1)
-    tradition = (100 - progress).toFixed(1)
 
     setBarValue("equality", equality)
     setBarValue("wealth", wealth)
@@ -116,22 +113,18 @@ stats"></a></div></noscript>
     setBarValue("might", might)
     setBarValue("liberty", liberty)
     setBarValue("authority", authority)
-    setBarValue("progress", progress)
-    setBarValue("tradition", tradition)
 
     document.getElementById("legal-label").innerHTML = setLabel(equality, legalArray)
     document.getElementById("social-label").innerHTML = setLabel(peace, socialArray)
-    document.getElementById("media-label").innerHTML = setLabel(liberty, govtArray)
-    document.getElementById("society-label").innerHTML = setLabel(progress, sctyArray)
+    document.getElementById("media-label").innerHTML = setLabel(liberty, mediaArray)
 
     ideology = ""
     ideodist = Infinity
     for (var i = 0; i < ideologies.length; i++) {
         dist = 0
         dist += Math.pow(Math.abs(ideologies[i].stats.legal - equality), 2)
-        dist += Math.pow(Math.abs(ideologies[i].stats.govt - liberty), 2)
+        dist += Math.pow(Math.abs(ideologies[i].stats.media - liberty), 2)
         dist += Math.pow(Math.abs(ideologies[i].stats.social - peace), 1.73856063)
-        dist += Math.pow(Math.abs(ideologies[i].stats.scty - progress), 1.73856063)
         if (dist < ideodist) {
             ideology = ideologies[i].name
             ideodist = dist
