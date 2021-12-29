@@ -1,7 +1,7 @@
 <head>
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
 <link href='style.css' rel='stylesheet' type='text/css'>
-<title>8values Quiz</title>
+<title>PRIDEvalues Quiz</title>
 <link rel="icon" type="x-icon" href="icon.png">
 <link rel="shortcut icon" type="x-icon" href="icon.png">
 <meta charset="utf-8">
@@ -17,7 +17,7 @@
 <script type="application/javascript"
         src="questions.js">
 </script>
-<h1>8values</h1>
+<h1>PRIDEvalues</h1>
 <hr>
 <h2 style="text-align:center;" id="question-number">Loading...</h2>
 <p class="question" id="question-text"></p>
@@ -44,6 +44,71 @@ scJsHost+
 href="http://statcounter.com/" target="_blank"><img
 class="statcounter"
 src="//c.statcounter.com/11325211/0/fd9f0659/1/" alt="web
+stats"></a></div></noscript>
+
+<!-- JavaScript for the test itself -->
+<script>
+    var max_legal, max_social, max_media // Max possible scores
+    max_legal = max_social = max_media = 0;
+    let legal_array = new Array(questions.length);
+    let social_array = new Array(questions.length);
+    let media_array = new Array(questions.length);
+    var qn = 0; // Question number
+    init_question();
+    for (var i = 0; i < questions.length; i++) {
+        max_legal += Math.abs(questions[i].effect.legal)
+        max_social += Math.abs(questions[i].effect.social)
+        max_media += Math.abs(questions[i].effect.media)
+    }
+    function init_question() {
+        document.getElementById("question-text").innerHTML = questions[qn].question;
+        document.getElementById("question-number").innerHTML = "Question " + (qn + 1) + " of " + (questions.length);
+        if (qn == 0) {
+            document.getElementById("back_button").style.display = 'none';
+            document.getElementById("back_button_off").style.display = 'block';
+        } else {
+            document.getElementById("back_button").style.display = 'block';
+            document.getElementById("back_button_off").style.display = 'none';
+        }
+
+    }
+
+    function next_question(mult) {
+        legal_array[qn] = mult*questions[qn].effect.legal
+        social_array[qn] = mult*questions[qn].effect.social
+        media_array[qn] = mult*questions[qn].effect.media
+        qn++;
+        if (qn < questions.length) {
+            init_question();
+        } else {
+            results();
+        }
+    }
+
+    function prev_question() {
+        if (qn == 0) {
+            return;
+        }
+        qn--;
+        init_question();
+    }
+
+    function calc_score(score,max) {
+        return (100*(max+score)/(2*max)).toFixed(1)
+    }
+
+    function results() {
+        let final_legal = legal_array.reduce((a, b) => a + b, 0)
+        let final_social = social_array.reduce((a, b) => a + b, 0)
+        let final_media = media_array.reduce((a, b) => a + b, 0)
+        location.href = `results.html`
+            + `?e=${calc_score(final_legal,max_legal)}`
+            + `&d=${calc_score(final_social,max_social)}`
+            + `&g=${calc_score(final_media,max_media)}`
+    }
+</script>
+</body>
+
 stats"></a></div></noscript>
 
 <!-- JavaScript for the test itself -->
